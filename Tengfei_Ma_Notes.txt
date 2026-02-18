@@ -1,0 +1,13 @@
+- First of all I noticed that the FSA and Miner49er file is using .NET 10.0 which I do not have on my computer. So I changed them to .NET 9.0 in order to run the code.
+
+- I noticed that the ticks are set to a random number between 10-20. I want to make it so it runs for 60 ticks in order to adjust the code/FSA to optimize the ending wealth so I changed the variable int gameLengthInTics = 60. And I also changed the "secsPerTick * 1000" to "secsPerTick * 10" so the ticks run faster and it'll be more productive for me to see the results as I progress.
+
+- There is a minor typo "Too thirsty too work". I changed it to "Too thirsty to work".
+
+- Currently the variable pocketsFull is set to 5 which means the miner could only carry up to 5 gold. The rules on Brightspace document says that the miner could carry no more than 10 gold at a time so I changed this variable to 10.
+
+- Currently the miner stops when the thirst is 16 or higher instead of 15 or higher. So I changed the private Boolean parched(FSA fsa) to if (thirst >= 14) instead 15. Now the miner is going to drink when the thirst is right at 15 so he won't waste a tick standing in the mines realizing he's thirsty.
+
+- I noticed that currently the miner is depositing 1 gold per tick. I changed it so he could deposit all his current gold in 1 tick. I changed the private void depositGold(FSA fsa) to bank += gold; gold = 0; This saves a lot of ticks so we could have more ending wealth. I also changed the text "deposit a gold nugget" to "depositing gold".
+
+- With the original code we could only get 20 gold in 60 ticks. Now we could get 25. 

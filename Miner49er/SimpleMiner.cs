@@ -72,11 +72,11 @@ namespace Miner49er
         /// </summary>
         private Boolean parched(FSA fsa)
         {
-            if (thirst >= 15)
+            if (thirst >= 14)
             {
-                Console.WriteLine("Too thirsty too work.");
+                Console.WriteLine("Too thirsty to work.");
             }
-            return thirst >= 15;
+            return thirst >= 14;
         }
 
         /// <summary>
@@ -93,9 +93,12 @@ namespace Miner49er
         /// </summary>
         private void depositGold(FSA fsa)
         {
-            gold -= 1;
-            bank += 1;
-            Console.WriteLine("deposit a gold nugget");
+            
+            bank += gold;
+
+            gold = 0;
+
+            Console.WriteLine("depositing gold");
         }
 
         /// <summary>
@@ -120,7 +123,7 @@ namespace Miner49er
             thirst++;
         }
 
-        private Boolean pocketsFull(FSA fsa) => gold >= 5;
+        private Boolean pocketsFull(FSA fsa) => gold >= 10;
 
         private Boolean pocketsNotEmpty(FSA fsa) => gold > 0;
 
